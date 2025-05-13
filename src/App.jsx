@@ -30,7 +30,6 @@ function App() {
   const fetchActresses = () => {
     axios.get(ActressesAPI)
       .then((res) => {
-
         setActresses(res.data);
       })
       .catch((error) => {
@@ -41,13 +40,15 @@ function App() {
   const fetchActors = () => {
     axios.get(ActorsAPI)
       .then((res) => {
-
         setActors(res.data);
+        console.log(actors)
       })
       .catch((error) => {
         console.error("Error fetching actors:", error);
       });
   }
+
+
 
   useEffect(() => {
     fetchActresses();
@@ -58,63 +59,40 @@ function App() {
   useEffect(() => {
     let filtered = [];
     if (gender === `male`) {
-      filtered = actors.map(actor => ({
-        id: actor.id,
-        name: actor.name,
-        image: actor.image,
-        biography: actor.biography,
-        birth_year: actor.birth_year,
-        nationality: actor.nationality,
-        awards: actor.awards,
-      }))
+      filtered = actors
     } else if (gender === `female`) {
-      filtered = actresses.map(actress => ({
-        id: actress.id,
-        name: actress.name,
-        image: actress.image,
-        biography: actress.biography,
-        birth_year: actress.birth_year,
-        nationality: actress.nationality,
-        awards: actress.awards,
-      }))
+      filtered = actresses
     } else {
-      let maxLenght = actresses.length + actors.length
+      let maxLenght = Math.max(actresses.length, actors.length)
       for (let i = 0; i < maxLenght; i++) {
-        filtered.push({
-          id: i + 1,
-          name: actors[i].name,
-          image: actors[i].image,
-          biography: actors[i].biography,
-          birth_year: actors[i].birth_year,
-          nationality: actors[i].nationality,
-          awards: actors[i].awards,
-        })
-        filtered.push({
-          id: i + 2,
-          name: actresses[i].name,
-          image: actresses[i].image,
-          biography: actresses[i].biography,
-          birth_year: actresses[i].birth_year,
-          nationality: actresses[i].nationality,
-          awards: actresses[i].awards,
-        })
+        if (actors.length) {
+          filtered.push({
+            id: (i * 2) + 1,
+            name: actors[i].name,
+            image: actors[i].image,
+            biography: actors[i].biography,
+            birth_year: actors[i].birth_year,
+            nationality: actors[i].nationality,
+            awards: actors[i].awards,
+          })
+        }
+        if (actresses.length) {
+          filtered.push({
+            id: (i * 2) + 2,
+            name: actresses[i].name,
+            image: actresses[i].image,
+            biography: actresses[i].biography,
+            birth_year: actresses[i].birth_year,
+            nationality: actresses[i].nationality,
+            awards: actresses[i].awards,
+          })
+        }
       }
     }
 
     setShow(filtered)
 
   }, [gender, actors, actresses])
-
-  // useEffect(() => {
-  //   gender === `male`
-  //     ? setShow(actors)
-  //     : gender === `female`
-  //       ? setShow(actresses)
-  //       : setShow([...actors, ...actresses])
-  // }, [gender, actors, actresses]);
-
-  console.log(actors[0])
-
 
   return (
     <>
