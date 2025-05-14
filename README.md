@@ -13,8 +13,8 @@ Creiamo una piccola app che ci mostri un elenco di attori o attrici.
 
 Usate uno di questi due endpoint, a piacimento:
 
-- 👩‍🎤 Lista di Attrici: [API Attrici](https://www.freetestapi.com/api/v1/actresses)
-- 👨‍🎤 Lista di Attori: [API Attori](https://www.freetestapi.com/api/v1/actors)
+- 👩‍🎤 Lista di Attrici: [API Attrici](https://lanciweb.github.io/demo/api/actresses/)
+- 👨‍🎤 Lista di Attori: [API Attori](https://lanciweb.github.io/demo/api/actors/)
 
 ---
 
@@ -49,14 +49,11 @@ Usate uno di questi due endpoint, a piacimento:
 #### Bonus 2 😎
 - Stampare un’unica lista che contiene attori e attrici insieme!
 
-#### Bonus 3 🤯
-- Inserire un filtro di ricerca che permetta di cercare gli attori o le attrici per nome.
-
 ---
 
 📚 **Documentazione utile:**
-- [API Attrici](https://www.freetestapi.com/apis/actresses)  
-- [API Attori](https://www.freetestapi.com/apis/actors)  
+- [API Attrici](https://lanciweb.github.io/demo/api/actresses/)  
+- [API Attori](https://lanciweb.github.io/demo/api/actors/)  
 
 ✨ **Se questa task è troppo difficile, prova ad aiutarti con l’AI!  
 Cerca però sempre di comprendere quello che ti viene suggerito 😉**
